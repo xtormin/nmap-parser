@@ -1,6 +1,13 @@
 # nmap-parser
 Nmap parser to csv and xlsx files.
 
+## Advantages?
+Filtering the info to later perform automated tests against a list of IPs according to their protocol / service / version 🧐
+
+An example:
+
+![Filter example of SSH services](utils/images/filter_example.png)
+
 ## Install
 
 ```
