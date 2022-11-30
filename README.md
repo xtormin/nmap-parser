@@ -44,6 +44,16 @@ python3 nmap-parser.py -x nmap/tcp-full-scripts.xml -X
 python3 nmap-parser.py -x nmap/tcp-full-scripts.xml -C -X       
 ```
 
+If you have the file in 'nmap/10.10.1.0-24/' (e.g.: nmap/192.168.1.0-24/tcp.xml), run the following command to parse all the .xml files you have in the folder.
+
+```
+for xmlfile in $(ls nmap/*/*.xml); do python3 nmap-parser.py -x $xmlfile -C -X; done
+```
+
+The csv and/or xlsx will be saved in the same location as the original.
+
+### Output
+
 You will get the following columns with scanner information:
 
 ```
