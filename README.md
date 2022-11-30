@@ -44,13 +44,20 @@ python3 nmap-parser.py -x nmap/tcp-full-scripts.xml -X
 python3 nmap-parser.py -x nmap/tcp-full-scripts.xml -C -X       
 ```
 
-If you have the file in 'nmap/10.10.1.0-24/' (e.g.: nmap/192.168.1.0-24/tcp.xml), run the following command to parse all the .xml files you have in the folder.
+If you have the file in 'nmap/10.10.1.0-24/' (e.g.: nmap/10.10.1.0-24/tcp-full-scripts.xml), run the following command to parse all the .xml files you have in the folder.
 
 ```
 for xmlfile in $(ls nmap/*/*.xml); do python3 nmap-parser.py -x $xmlfile -C -X; done
 ```
 
 The csv and/or xlsx will be saved in the same location as the original.
+
+If you want to save all csv's in the same file, you can do the following:
+
+```
+echo "Hostname;IP;State;Port;Protocol;State Port; Service Name; Product; Version; Extrainfo" > /tmp/all-csv-to-one-file.csv
+cat nmap/*/*.csv >> /tmp/all-csv-to-one-file.csv
+```
 
 ### Output
 
