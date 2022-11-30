@@ -11,7 +11,7 @@ def run():
     if args.csvfile:
         filename_csv = filename + '.csv'
         try:
-            df_nmap_info.to_csv(filename_csv, sep=';', encoding='utf-8', index=False)
+            df_nmap_info.to_csv(filename_csv, sep=';', encoding='utf-8', header=None, index=False)
             print(f"|+| File created in {filename_csv}")
         except Exception as e:
             print(f"|-| CSV file not created")
