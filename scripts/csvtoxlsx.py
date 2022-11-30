@@ -16,6 +16,7 @@ if __name__=="__main__":
     try:
         df = pd.read_csv(filename, sep=";")
         df.reset_index(drop=True)
+        df.drop_duplicates()
         df.style.to_excel(filename_xlsx, index=False)
         print(f"|+| File created on {filename_xlsx}")
     except Exception as e:
