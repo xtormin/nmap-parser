@@ -1,3 +1,4 @@
+import sys
 from utils import cli
 import app.modules.nmap_parser as nmap
 
@@ -7,7 +8,11 @@ def run():
 
     filename = args.nmapxmlfile
 
-    df_nmap_info = nmap.parser(filename)
+    try:
+        df_nmap_info = nmap.parser(filename)
+    except Exception as e:
+        print("|x| Error parsing nmap XML file")
+        sys.exit(0)
 
     if args.csvfile:
         filename_csv = filename + '.csv'
