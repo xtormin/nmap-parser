@@ -1,13 +1,15 @@
 import pandas as pd
 import argparse
 
-parser = argparse.ArgumentParser(add_help = True, description = '%(prog)s hunts all forms and inputs found in a list of urls.')
+parser = argparse.ArgumentParser(
+    add_help=True,
+    description='%(prog)s hunts all forms and inputs found in a list of urls.')
 
-parser.add_argument('-c','--csvfile', 
-                    help = 'XLSX output of CSV file', 
-                    nargs = '?', type=str)
+parser.add_argument('-c', '--csvfile',
+                    help='XLSX output of CSV file',
+                    nargs='?', type=str)
 
-if __name__=="__main__":
+if __name__ == "__main__":
     args = parser.parse_args()
 
     filename = args.csvfile
@@ -20,5 +22,5 @@ if __name__=="__main__":
         df.style.to_excel(filename_xlsx, index=False)
         print(f"|+| File created on {filename_xlsx}")
     except Exception as e:
-        print(f"|+| File not created")
+        print("|+| File not created")
         print(e)
